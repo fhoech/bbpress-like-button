@@ -20,7 +20,7 @@ jQuery(function() {
                 button.removeClass('like-loading').addClass('liked');
                 var likes_number = button.parent('.bbpl_button_wrapper').children('.bbpl_number');
                 if(likes_number){
-                    var counter = +Number(likes_number.val()) + +1;
+                    var counter = Number(likes_number.text()) + 1;
                     likes_number.text('' + counter + '');
                 }
             });

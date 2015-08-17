@@ -21,7 +21,7 @@ jQuery(function() {
                 var likes_number = button.parent('.bbpl_button_wrapper').children('.bbpl_number');
                 if(likes_number){
                     var counter = +Number(likes_number.val()) + +1;
-                    likes_number.text('(' + counter + ')');
+                    likes_number.text('' + counter + '');
                 }
             });
             

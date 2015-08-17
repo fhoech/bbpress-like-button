@@ -31,6 +31,14 @@ span.bbpl_number {
     padding: 4px 0;
 }
 
+span.bbpl_number:before {
+    content: '(';
+}
+
+span.bbpl_number:after {
+    content: ')';
+}
+
 .bbpl_button.liked span {
     margin-right: 5px;
 }

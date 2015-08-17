@@ -494,7 +494,7 @@ class bbpress_like {
             $like_number = $this->get_likes_number($post_id);
             if((Bool)$this->settings['settingsbbpl_bbpl_general_show_number'] && $like_number){
                 ?>
-                <span class="bbpl_number">(<?php echo $like_number; ?>)</span>
+                <span class="bbpl_number"><?php echo $like_number; ?></span>
                 <?php
             }
             ?>

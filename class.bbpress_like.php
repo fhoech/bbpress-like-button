@@ -250,7 +250,7 @@ class bbpress_like {
     function like_this(){
         global $wpdb;
         
-        extract($_POST);
+        extract($_REQUEST);
         
         //Check if previously liked
         $liked = self::get_like($post_id,$user_id);
@@ -261,7 +261,7 @@ class bbpress_like {
             $result = add_post_meta($post_id, 'bbpl_like', $user_id);
             if(!$result){ _e('An error ocurred: ', $this->l10n).$wpdb->print_error(); }else{ _e('Liked successfully',$this->l10n);}
             //Buddypress show on activity stream
-            if (get_option('bbpl_buddypress',0) && (Bool)$this->settings['settingsbbpl_bbpl_general_buddypress_activity_stream']) {
+            if (get_option('bbpl_buddypress',0) && (Bool)$this->settings['settingsbbpl_bbpl_general_buddypress_activity_stream'] && function_exists('bp_activity_add')) {
                 //Get post type
                 $post_type = get_post_type($post_id);
                 $user_info = get_userdata($user_id);
@@ -494,7 +494,7 @@ class bbpress_like {
             $like_number = $this->get_likes_number($post_id);
             if((Bool)$this->settings['settingsbbpl_bbpl_general_show_number'] && $like_number){
                 ?>
-                <span class="bbpl_number">(<?php echo $like_number; ?>)</span>
+                <span class="bbpl_number"><?php echo $like_number; ?></span>
                 <?php
             }
             ?>
